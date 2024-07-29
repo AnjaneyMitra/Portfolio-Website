@@ -1,1 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - [Your Name]</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="about.html">About Me</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="curriculars.html">Curriculars</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="contact contact-background">
+            <form id="contact-form" method="POST">
+                <label for="name">Name*</label>
+                <input type="text" id="name" name="name" required pattern="[A-Za-z\s]+" title="Name should only contain letters and spaces">
+
+                <label for="email">Email*</label>
+                <input type="email" id="email" name="email" required>
+                
+                
+                <label for="gender">Gender*</label>
+                <div class="radio-group">
+                    <input type="radio" id="male" name="gender" value="male" required>
+                    <label for="male">Male</label>
+                    <input type="radio" id="female" name="gender" value="female" required>
+                    <label for="female">Female</label>
+                    <input type="radio" id="optional" name="gender" value="Prefer not to say" required>
+                    <label for="female">Prefer Not to Say</label>
+                </div>
+
+                <label for="interests">Interests:</label>
+                <div class="checkbox-group">
+                    <input type="checkbox" id="web-development" name="interests" value="web-development">
+                    <label for="web-development">Web Development</label>
+                    <input type="checkbox" id="creative-design" name="interests" value="creative-design">
+                    <label for="creative-design">Creative Design</label>
+                    <input type="checkbox" id="software-development" name="interests" value="software-development">
+                    <label for="software-development">Software Development</label>
+                </div>
+
+                <label for="enquiry-type">Enquiry Type:</label>
+                <select id="enquiry-type" name="enquiry-type" required>
+                    <option value="">Select an enquiry type</option>
+                    <option value="general">General Enquiry</option>
+                    <option value="project">Project Collaboration</option>
+                    <option value="job">Job Opportunity</option>
+                </select>
+
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" required></textarea>
+
+                <button type="submit">Send</button>
+            </form>
+        </section>
+    </main>
+    <script>
+        document.getElementById('contact-form').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent the default form submission
+
+            // Extract form data
+            const formData = new FormData(event.target);
+
+            // Create an object to hold the form data
+            const data = {};
+            formData.forEach((value, key) => {
+                data[key] = value;
+            });
+
+            // For demonstration purposes, log the data to the console
+            console.log('Form submitted:', data);
+
+            // Display an alert to indicate form submission (you can customize this as needed)
+            alert('Form submitted successfully!');
+
+            // Optionally, clear the form
+            event.target.reset();
+        });
+    </script>
+</body>
+</html>
 
