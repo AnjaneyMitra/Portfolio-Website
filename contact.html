@@ -65,27 +65,21 @@
     </main>
     <script>
         document.getElementById('contact-form').addEventListener('submit', function(event) {
-            event.preventDefault(); // Prevent the default form submission
+            event.preventDefault(); 
 
-            // Extract form data
             const formData = new FormData(event.target);
 
-            // Create an object to hold the form data
             const data = {};
             formData.forEach((value, key) => {
                 data[key] = value;
             });
 
-            // For demonstration purposes, log the data to the console
             console.log('Form submitted:', data);
 
-            // Display an alert to indicate form submission (you can customize this as needed)
             alert('Form submitted successfully!');
 
-            // Optionally, clear the form
             event.target.reset();
         });
     </script>
 </body>
 </html>
-
